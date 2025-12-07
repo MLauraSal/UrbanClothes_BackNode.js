@@ -4,7 +4,7 @@ import {
   createUser,
   getUserByEmail,
  
-} from "../models/user.model.js";
+} from "../models/userModels.js";
 import { generateToken } from "../middlewares/jwt.create.js";
 
 
@@ -39,9 +39,9 @@ export const register = async (req, res) => {
     res.status(201).json({ message: "User created successfully", user: { id: newUser.id, name, email, role } ,
     token });
   } catch (err) {
-    console.error("Error en register:", err);
-    res.status(500).json({ error: "Error al registrar usuario" });
-  }"User registration failed"
+   
+    res.status(500).json({ error: "User registration failed" });
+  }
 };
 
 export const login = async (req, res) => {
@@ -68,7 +68,7 @@ export const login = async (req, res) => {
           role: userFound.role
         }, token });
   } catch (err) {
-    console.error("Error in login:", err);
+    
     res.status(500).json({message: "Login failed, please check your credentials." });
   }
 };

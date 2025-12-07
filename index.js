@@ -4,6 +4,7 @@ import cors from 'cors';
 import productsRoutes from './src/routes/products.Routes.js';
 import userRoutes from './src/routes/user.Routes.js';
 import authRoutes from './src/routes/auth.Routes.js';
+import categoriesRoutes from './src/routes/categories.Routes.js';
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(cors({
 app.use('/api/products', productsRoutes);
 app.use('/api/users', userRoutes); 
 app.use('/api/auth', authRoutes);
+app.use('/api/categories', categoriesRoutes);
 
 
 const {port} = configDotenvPort ();

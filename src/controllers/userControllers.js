@@ -4,9 +4,9 @@ import {
   getAllUsers,
   getUserById, 
   createUser,
-  deleteUser
- 
-} from "../models/user.model.js";
+  deleteUser,
+ updateUser
+} from "../models/userModels.js";
 
 
 
@@ -15,7 +15,7 @@ export const getUsers = async (req, res) => {
      
     const users = await getAllUsers();
     res.status(200).json(users);
-    console.log(users);
+   
   } catch (err) {
     console.error("Error obteniendo usuarios:", err);
     res.status(500).json({ error: "Error al obtener usuarios" });
