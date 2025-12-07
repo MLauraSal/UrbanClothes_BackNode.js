@@ -22,7 +22,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoriesRoutes);
 
-
+// Start the server
 const {port} = configDotenvPort ();
 
 

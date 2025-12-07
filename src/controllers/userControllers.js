@@ -9,7 +9,7 @@ import {
 } from "../models/userModels.js";
 
 
-
+// Controlador para obtener todos los usuarios
 export const getUsers = async (req, res) => {
   try {
      
@@ -22,6 +22,8 @@ export const getUsers = async (req, res) => {
   }
 };
 
+
+// Controlador para obtener un usuario por ID
 export const getUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -35,6 +37,8 @@ export const getUser = async (req, res) => {
     res.status(500).json({ error: "Error al obtener usuario" });
   }
 }
+
+// Controlador para crear un usuario nuevo
 
 export const addUser = async (req, res) => {
 

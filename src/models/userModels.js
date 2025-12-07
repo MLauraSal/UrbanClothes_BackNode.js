@@ -2,8 +2,11 @@ import {db} from "../services/firebaseService.js";
 
 import { collection, addDoc, getDocs, getDoc, doc, deleteDoc, updateDoc, query, where } from "firebase/firestore";
 
+// Referencia a la colección de usuarios
 
 const usersCollection = collection(db, "users");
+
+// Obtener todos los usuarios
 
 export const getAllUsers = async () => {
  try {
@@ -15,6 +18,9 @@ export const getAllUsers = async () => {
   
  }
 };
+
+
+// Obtener un usuario por ID
 
 export const getUserById = async (id) => {
   try {
@@ -29,10 +35,15 @@ export const getUserById = async (id) => {
   }
 };
 
+
+// Crear un nuevo usuario
+
 export const createUser = async (userData) => {
   const docRef = await addDoc(usersCollection, userData);
   return { id: docRef.id, ...userData };
 }
+
+// Obtener un usuario por email
 
 export const getUserByEmail = async (email) => {
   try {
@@ -47,6 +58,8 @@ export const getUserByEmail = async (email) => {
   }
 };
 
+// Eliminar un usuario por ID
+
 export const deleteUser = async (id) => {
   try {
     
@@ -56,6 +69,9 @@ export const deleteUser = async (id) => {
     
   }
 };
+
+// Actualizar un usuario por ID
+
 
 export const updateUser = async (id, updateData) => {
   try {

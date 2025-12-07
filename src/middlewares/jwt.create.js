@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken';
 
+
+// Función para generar un token JWT
+
 export const generateToken = (user) => {
   return jwt.sign(
     {

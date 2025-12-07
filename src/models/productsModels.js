@@ -1,8 +1,12 @@
 import { db } from "../services/firebaseService.js";
 import { collection, addDoc, getDocs, doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 
+// Referencia a la colección de productos
 
 const productsCollection = collection(db, "products");
+
+
+// Obtener todos los productos
 
 export const modelGetAll = async () => {
   try {
@@ -13,6 +17,9 @@ export const modelGetAll = async () => {
   }
   };
   
+
+  // Obtener un producto por ID
+
   export const modelGetById = async (id) => {
   try {
     const productRef = doc(productsCollection, id);
@@ -26,6 +33,9 @@ export const modelGetAll = async () => {
   }
   };
   
+
+  // Crear un nuevo producto
+
   export const modelCreate = async (data) => {
    try {
     const productRef = await addDoc(productsCollection, data);
@@ -35,6 +45,8 @@ export const modelGetAll = async () => {
     
    }
   };
+
+  // Eliminar un producto por ID
   
   export const modelDelete = async (id) => {
    try {
@@ -51,6 +63,8 @@ export const modelGetAll = async () => {
    }
 
   };
+
+  // Actualizar un producto por ID
   
   export const modelUpdate = async (id, data) => {
  try {

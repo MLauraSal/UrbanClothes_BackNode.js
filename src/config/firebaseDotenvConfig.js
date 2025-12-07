@@ -1,5 +1,6 @@
 import "dotenv/config";
 
+// Configuración de Firebase desde variables de entorno
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,

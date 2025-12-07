@@ -6,6 +6,7 @@ import { verifyToken, adminOnly } from "../middlewares/authMiddleware.js";
 
 const router = Router();
 
+// Rutas para usuarios
 
 router.get("/",verifyToken, adminOnly, getUsers);
 router.post("/", verifyToken, adminOnly,addUser);

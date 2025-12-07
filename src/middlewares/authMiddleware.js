@@ -11,7 +11,7 @@ export const verifyToken = (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1];
 
     if (!token) {
-      return res.status(401).json({ error: "Token requerido" });
+      return res.status(401).json({ error: "Token required" });
     }
 
     // Verificar token
@@ -23,8 +23,8 @@ export const verifyToken = (req, res, next) => {
 
     next();
   } catch (error) {
-    console.error("Error verificando token:", error);
-    return res.status(403).json({ error: "Token inválido o expirado" });
+    console.error("Error verifying token:", error);
+    return res.status(403).json({ error: "Invalid or expired token" });
   }
 };
 
@@ -33,7 +33,7 @@ export const adminOnly = (req, res, next) => {
 
   // Verificar si el usuario es administrador
   if (req.user?.role !== "admin") {
-    return res.status(403).json({ error: "Acceso denegado. Solo administradores." });
+    return res.status(403).json({ error: "Access denied. Administrators only." });
   }
   next();
 };

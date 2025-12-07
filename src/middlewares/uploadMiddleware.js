@@ -3,6 +3,7 @@ import { CloudinaryStorage } from "multer-storage-cloudinary";
 import cloudinary from "../config/cloudinaryDotenvConfig.js";
 
 // Configuración de almacenamiento en Cloudinary
+
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
@@ -13,6 +14,7 @@ const storage = new CloudinaryStorage({
 });
 
 // Inicializa multer
+
 const upload = multer({ storage });
 
 export default upload;

@@ -7,6 +7,9 @@ import {
   modelUpdate
 } from "../models/productsModels.js";
 
+
+//Controlador para obtener todos los productos
+
 export const getAllProducts = async (req, res) => {
   try {
     const { category } = req.query; 
@@ -30,6 +33,7 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
+// Controlador para obtener un producto por ID
 
 export const getProductById = async (req, res) => {
   try {
@@ -49,6 +53,8 @@ export const getProductById = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+// Controlador para buscar productos por nombre
 
 export const getProductsByName = async (req, res) => {
   try {
@@ -72,6 +78,8 @@ export const getProductsByName = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+// Controlador para crear un nuevo producto
 
 export const createProduct = async (req, res) => {
   try {
@@ -100,6 +108,9 @@ export const createProduct = async (req, res) => {
   }
 };
 
+
+// Controlador para actualizar un producto por ID
+
 export const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -113,7 +124,7 @@ export const updateProduct = async (req, res) => {
 
     await modelUpdate(id, newData);
 
-    res.status(200).json({ message: "Producto actualizado exitosamente" });
+    res.status(200).json({ message: "Product successfully updated" });
 
   } catch (error) {
    
@@ -121,6 +132,7 @@ export const updateProduct = async (req, res) => {
   }
 };
 
+// Controlador para eliminar un producto por ID
 
 export const deleteProduct = async (req, res) => {
   try {

@@ -6,9 +6,11 @@ import {getAll, getById, create, remove} from '../controllers/categoriesControll
 
 const router = Router();
 
+
+// Rutas para categorías
+
 router.get('/', getAll);
 router.post('/', create);
-
 router.get('/:id', getById);
 router.delete('/:id', remove);
 

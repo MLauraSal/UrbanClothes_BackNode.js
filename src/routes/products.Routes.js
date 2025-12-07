@@ -6,6 +6,7 @@ import { adminOnly, verifyToken } from '../middlewares/authMiddleware.js';
 
 const router = Router();
 
+// Rutas para productos
 
 router.get('/', getAllProducts);
 router.get('/search', getProductsByName);

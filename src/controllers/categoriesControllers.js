@@ -1,11 +1,13 @@
 import { getAllCategories, getCategoryById, createCategory, deleteCategory } from "../models/categoriesModels.js";
 
+// Controlador para obtener todas las categorías
 
 export const getAll = async (req, res) => {
     const categories = await getAllCategories();
     res.json(categories);
 };
 
+// Controlador para obtener una categoría por ID
 
 export const getById = async (req, res) => {
     try {
@@ -22,6 +24,9 @@ export const getById = async (req, res) => {
         
     }
 };
+
+
+// Controlador para crear una nueva categoría
 
 export const create = async (req, res) => {
   try {
@@ -45,6 +50,9 @@ export const create = async (req, res) => {
      res.status(500).json({ error: "Error creating category" });
    }
 };
+
+
+// Controlador para eliminar una categoría por ID
 
 export const remove = async (req, res) => { 
     try {

@@ -7,6 +7,7 @@ import {
 } from "../models/userModels.js";
 import { generateToken } from "../middlewares/jwt.create.js";
 
+// Controlador para registrar un nuevo usuario
 
 export const register = async (req, res) => {
   try {
@@ -43,6 +44,8 @@ export const register = async (req, res) => {
     res.status(500).json({ error: "User registration failed" });
   }
 };
+
+// Controlador para iniciar sesión de un usuario existente
 
 export const login = async (req, res) => {
   try {

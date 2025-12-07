@@ -1,12 +1,19 @@
 import {collection, getDocs, getDoc, doc, addDoc, deleteDoc } from "firebase/firestore";
 import {db} from "../services/firebaseService.js";
 
+
+// Referencia a la colección de categorías
+
 const categoryCollection = collection(db, 'category');
+
+// Obtener todas las categorías
 
 export const getAllCategories = async () => {
     const snapshot = await getDocs(categoryCollection);
     return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
+
+// Obtener una categoría por ID
 
 export const getCategoryById = async (id) => {
     try {
@@ -21,6 +28,8 @@ export const getCategoryById = async (id) => {
       }
 };
 
+// Crear una nueva categoría
+
 export const createCategory = async (data) => {
     try {
         const categoryRef = await addDoc(categoryCollection, data);
@@ -30,6 +39,9 @@ export const createCategory = async (data) => {
         
        }
 };
+
+
+// Eliminar una categoría por ID
 
 export const deleteCategory = async (id) => {
     try {
