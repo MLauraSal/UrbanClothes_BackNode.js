@@ -21,6 +21,9 @@ app.use(cors({
 
 // Routes
 
+app.get("/", (req, res) => {
+  res.json({ status: "Backend funcionando ✅" });
+});
 
 
 app.use('/api/products', productsRoutes);
