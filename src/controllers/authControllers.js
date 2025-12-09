@@ -37,7 +37,7 @@ export const register = async (req, res) => {
 
     const token = generateToken(newUser);
 
-    res.status(201).json({ message: "User created successfully", user: { id: newUser.id, name, email, role } ,
+    res.status(201).json({ message: "User created successfully", user: { id: newUser.id, name: newUser.name, email: newUser.email, role: newUser.role } ,
     token });
   } catch (err) {
    
@@ -67,7 +67,7 @@ export const login = async (req, res) => {
          id: userFound.id,
           name: userFound.name,
           email: userFound.email,
-         
+          password: userFound.password,
           role: userFound.role
         }, token });
   } catch (err) {
