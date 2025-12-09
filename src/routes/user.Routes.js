@@ -10,7 +10,7 @@ const router = Router();
 
 router.get("/",verifyToken, adminOnly, getUsers);
 router.post("/", verifyToken, adminOnly,addUser);
-router.get("/:id", getUser);
+router.get("/:id",verifyToken, getUser);
 router.put("/:id",verifyToken, adminOnly, modifyUser);
 router.delete("/:id", verifyToken, adminOnly,removeUser);
 
