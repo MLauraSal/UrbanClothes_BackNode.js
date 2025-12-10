@@ -10,7 +10,7 @@ const router = Router();
 
 // Rutas para categorías
 
-router.get('/',verifyToken,adminOnly, getAll);
+router.get('/',verifyToken, getAll);
 router.post('/',verifyToken,adminOnly, create);
 router.get('/:id',verifyToken,adminOnly, getById);
 router.delete('/:id',verifyToken,adminOnly, remove);
