@@ -1,4 +1,4 @@
-import { getAllCategories, getCategoryById, createCategory, deleteCategory } from "../models/categoriesModels.js";
+import { getAllCategories, getCategoryById, createCategory, deleteCategory, updateCategory } from "../models/categoriesModels.js";
 
 // Controlador para obtener todas las categorías
 
@@ -70,4 +70,21 @@ export const remove = async (req, res) => {
 };
 
 
+// Controlador para actualizar una categoría por ID
+export const updateCategory = async (req, res) => {
+  try {
+    const { id } = req.params;
+    let newData = { ...req.body };
+
+      
  
+
+    await updateCategory(id, newData);
+
+    res.status(200).json({ message: "Category successfully updated" });
+
+  } catch (error) {
+   
+    res.status(500).json({ message: "Error update category" });
+  }
+};

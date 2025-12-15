@@ -57,6 +57,20 @@ export const deleteCategory = async (id) => {
        }
 };
 
+  export const updateCategory = async (id, data) => {
+ try {
+  const categoryRef = doc(categoryCollection, id);
+  const snapshot = await getDoc(categoryRef);
+  if (!snapshot.exists()) return null;
 
 
+  await updateDoc(categoryRef, data);
+  return { id: snapshot.id, ...snapshot.data(), ...data };
+
+ } catch (error) {
+    console.error("Error updating category:", error);
+  
+ }
+
+  };
 
