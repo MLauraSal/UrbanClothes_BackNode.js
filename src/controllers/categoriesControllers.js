@@ -71,7 +71,7 @@ export const remove = async (req, res) => {
 
 
 // Controlador para actualizar una categoría por ID
-export const updateCategory = async (req, res) => {
+export const update = async (req, res) => {
   try {
     const { id } = req.params;
     let newData = { ...req.body };
