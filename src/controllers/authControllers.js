@@ -71,7 +71,6 @@ export const login = async (req, res) => {
          id: userFound.id,
           name: userFound.name,
           email: userFound.email,
-          password: userFound.password,
           role: userFound.role
         }, token });
   } catch (err) {
