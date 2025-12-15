@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import { getAllProducts, getProductById, getProductsByName, createProduct, updateProduct, deleteProduct } from '../controllers/productsControllers.js';
+import { getAllProducts, getProductById, searchProducts, createProduct, updateProduct, deleteProduct } from '../controllers/productsControllers.js';
 import upload from '../middlewares/uploadMiddleware.js';
 import { adminOnly, verifyToken } from '../middlewares/authMiddleware.js';  
 
@@ -9,7 +9,7 @@ const router = Router();
 // Rutas para productos
 
 router.get('/', getAllProducts);
-router.get('/search', getProductsByName);
+router.get('/search', searchProducts);
 router.post('/', verifyToken, adminOnly, upload.single('image'), createProduct);
 router.get('/:id', getProductById);
 router.put('/:id', verifyToken,adminOnly, upload.single('image'), updateProduct);

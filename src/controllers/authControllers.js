@@ -47,6 +47,10 @@ export const register = async (req, res) => {
 
 // Controlador para iniciar sesión de un usuario existente
 
+
+// "email": "admin@ejemplo.com",
+// "password": "admin123"
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;

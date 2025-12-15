@@ -56,28 +56,30 @@ export const getProductById = async (req, res) => {
 
 // Controlador para buscar productos por nombre
 
-export const getProductsByName = async (req, res) => {
+export const searchProducts = async (req, res) => {
   try {
-    const {name} = req.query;
+    const { q } = req.query;
 
-    if (!name) {
-      return res.status(400).json({ message: "There is missing data in the search" });
+    if (!q) {
+      return res.json([]);
     }
 
-    const products = await modelGetAll();
+    const snapshot = await db
+      .collection("products")
+      .get();
 
-  
-    const filtered = products.filter((p) =>
-      p.title?.toLowerCase().includes(name.toLowerCase())
-    );
+    const results = snapshot.docs
+      .map(doc => ({ id: doc.id, ...doc.data() }))
+      .filter(product =>
+        product.name.toLowerCase().includes(q.toLowerCase())
+      );
 
-    res.status(200).json(filtered);
-
+    res.json(results);
   } catch (error) {
-
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ error: "Search error" });
   }
 };
+
 
 // Controlador para crear un nuevo producto
 
